@@ -77,7 +77,11 @@ id_of('aws_elb', 'name')
 ```
 
 If you call `use_resource_shortcuts!` then most aws resources have
-shortcut methods you can use
+shortcut methods you can use.
+
+Where possible I have defaulted the `name` parameter to be the
+resource name (and the description if you are forced to provide one),
+hope you find it useful.
 
 ```ruby
 require 'terrafied'
@@ -151,8 +155,6 @@ new_resource_type 'name',
 #     }
 #   }
 # }
-
-
 
 ```
 
