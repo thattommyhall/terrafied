@@ -3,16 +3,16 @@
           }
 
 class << self
-  def provider(name, spec)
+  def provider(name, spec={})
     @output["provider"][name.to_s] = spec
   end
 
-  def resource(type, name, attributes)
+  def resource(type, name, spec={})
     @output["resource"][type.to_s] ||= {}
     if @output["resource"][type.to_s][name.to_s]
       throw "Tried to create a resource of type #{type} called '#{name}' when one already exists"
     end
-    @output["resource"][type.to_s][name.to_s] = attributes
+    @output["resource"][type.to_s][name.to_s] = spec
   end
 
   def id_of(type,name)
