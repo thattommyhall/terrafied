@@ -649,7 +649,9 @@ class << self
   end
 
   def aws_s3_bucket(name, spec={})
-    resource 'aws_s3_bucket', name, spec
+    default_spec = { bucket: name }
+    resource 'aws_s3_bucket', name,
+             default_spec.deep_merge(spec)
   end
 
   def aws_s3_bucket_object(name, spec={})
