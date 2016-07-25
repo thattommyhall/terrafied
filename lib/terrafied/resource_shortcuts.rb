@@ -731,7 +731,7 @@ class << self
                      tags: { Name: name }
                    }
     resource('aws_security_group', name,
-             default_spec.deep_merge(spec={}))
+             default_spec.deep_merge(spec))
   end
 
   def aws_security_group_rule(name, spec={})
