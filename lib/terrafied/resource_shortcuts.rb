@@ -227,9 +227,7 @@ class << self
   end
 
   def aws_launch_configuration(name, spec={})
-    default_spec = { name: name }
-    resource 'aws_launch_configuration', name,
-             default_spec.deep_merge(spec)
+    resource 'aws_launch_configuration', name, spec
   end
 
   def aws_lb_cookie_stickiness_policy(name, spec={})
