@@ -393,6 +393,10 @@ class << self
     resource 'aws_iam_role', name,
              default_spec.deep_merge(spec)
   end
+  
+  def aws_iam_role_policy_attachment(name, spec={})
+    resource 'aws_iam_role_policy_attachment', name, spec
+  end
 
   def aws_iam_role_policy(name, spec={})
     default_spec = { name: name }
