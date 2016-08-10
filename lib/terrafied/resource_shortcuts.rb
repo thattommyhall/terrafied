@@ -217,7 +217,10 @@ class << self
   end
 
   def aws_instance(name, spec={})
-    resource 'aws_instance', name, spec
+    default_spec = { tags:
+                       { Name: name }
+                   }
+    resource 'aws_instance', name, default_spec.deep_merge(spec)
   end
 
   def aws_key_pair(name, spec={})
