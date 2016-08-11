@@ -578,20 +578,13 @@ class << self
   end
 
   def aws_db_security_group(name, spec={})
-    default_spec = { name: name,
-                     description: name
-                   }
+    default_spec = { name: name }
     resource 'aws_db_security_group', name,
              default_spec.deep_merge(spec)
   end
 
   def aws_db_subnet_group(name, spec={})
-    default_spec = { name: name,
-                     description: name,
-                     tags: {
-                       Name: name
-                     }
-                   }
+    default_spec = { name: name }
     resource 'aws_db_subnet_group', name,
              default_spec.deep_merge(spec)
   end
