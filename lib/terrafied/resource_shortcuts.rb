@@ -396,7 +396,7 @@ class << self
     resource 'aws_iam_role', name,
              default_spec.deep_merge(spec)
   end
-  
+
   def aws_iam_role_policy_attachment(name, spec={})
     resource 'aws_iam_role_policy_attachment', name, spec
   end
@@ -587,7 +587,10 @@ class << self
 
   def aws_db_subnet_group(name, spec={})
     default_spec = { name: name,
-                     description: name
+                     description: name,
+                     tags: {
+                       Name: name
+                     }
                    }
     resource 'aws_db_subnet_group', name,
              default_spec.deep_merge(spec)
